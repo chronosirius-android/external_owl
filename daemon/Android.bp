@@ -1,0 +1,31 @@
+cc_binary {
+    name: "owl",
+    srcs: [
+        "io.c",
+//        "io.h",
+        "core.c",
+//        "core.h",
+        "netutils.c",
+//        "netutils.h",
+        "owl.c",
+        // "corewlan.m", // macOS specific
+        // "corewlan.h", // macOS specific
+    ],
+    cflags: [
+        "-std=c++11",
+        "-Wall",
+        "-Wextra",
+    ],
+    static_libs: [
+        "libawdl",
+	"libev",
+        // Handle pcap and libev as needed (likely Android alternatives or removal)
+    ],
+    shared_libs: [
+	"libpcap",
+        "libnl",
+	"libradiotap",
+    ],
+    installable: true,
+    vendor: true
+}
